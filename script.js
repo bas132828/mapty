@@ -3,14 +3,6 @@
 // prettier-ignore
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const form = document.querySelector(".form");
-const containerWorkouts = document.querySelector(".workouts");
-const inputType = document.querySelector(".form__input--type");
-const inputDistance = document.querySelector(".form__input--distance");
-const inputDuration = document.querySelector(".form__input--duration");
-const inputCadence = document.querySelector(".form__input--cadence");
-const inputElevation = document.querySelector(".form__input--elevation");
-
 class Workout {
   date = new Date();
   id = Date.now() + "".slice(-10);
@@ -53,6 +45,15 @@ class Cycling extends Workout {
 // console.log(run1, cycling1);
 // //////////
 //Application architecture
+
+const form = document.querySelector(".form");
+const containerWorkouts = document.querySelector(".workouts");
+const inputType = document.querySelector(".form__input--type");
+const inputDistance = document.querySelector(".form__input--distance");
+const inputDuration = document.querySelector(".form__input--duration");
+const inputCadence = document.querySelector(".form__input--cadence");
+const inputElevation = document.querySelector(".form__input--elevation");
+
 class App {
   #map;
   #mapEvent;
@@ -102,11 +103,17 @@ class App {
 
   _newWorkout(e) {
     e.preventDefault();
+    //get data from form
 
-    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-      "";
-    //display marker
-    // console.log(this.#mapEvent);
+    //check if data is valid
+
+    //if workout is running - create running object
+
+    //if workout is running - create running object
+
+    //add new object to workout activity
+
+    //render workout on map as a marker
     const { lat, lng } = this.#mapEvent.latlng;
     L.marker([lat, lng])
       .addTo(this.#map)
@@ -121,6 +128,12 @@ class App {
       )
       .setPopupContent("Workout")
       .openPopup();
+    //render workout from the list
+
+    //hide the form + clear input fields
+
+    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
+      "";
   }
 }
 
